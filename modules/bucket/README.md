@@ -1,0 +1,1 @@
+Module for creating a bucket with public access and static website enabled.
