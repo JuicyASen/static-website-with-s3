@@ -12,7 +12,7 @@ export AWS_REGION="ap-southeast-2"
 ```
 ## Something not covered in Terraform
 You have to get the TLS/SSL certificate ready before applying this terraform code.
-> Notice: According to the convention of aws, your certified domain name should be as some as the name of your s3 bucket
+> Notice: According to the convention of aws, your certified domain name should be the same as the name of your s3 bucket
 ## How to apply
 After exporting credentials to env, run the following command
 ```bash
