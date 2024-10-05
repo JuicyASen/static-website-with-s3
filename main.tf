@@ -27,3 +27,21 @@ module "hosting_bucket" {
   bucket_name = var.domain_name
   tags = var.tags
 }
+
+module "cdn" {
+  source = "./modules/cdn"
+  domain_name = var.domain_name
+  s3_origin = module.hosting_bucket.bucket_website_endpoint
+}
+
+output "s3_endpoint" {
+  value = module.hosting_bucket.bucket_website_endpoint
+}
+
+output "cdn_endpoint" {
+  value = module.cdn.endpoint
+}
+
+output "alternate_domain_name" {
+  value = var.domain_name
+}

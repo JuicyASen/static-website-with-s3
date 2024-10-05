@@ -1,0 +1,1 @@
+Module that creates CloudFront distribution for static web hosted in s3 bucket.
