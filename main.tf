@@ -10,7 +10,7 @@ terraform {
 provider "aws" {}
 
 variable "domain_name" {
-  type = string 
+  type = string
 }
 
 variable "tags" {
@@ -25,13 +25,20 @@ module "hosting_bucket" {
   source = "./modules/bucket"
 
   bucket_name = var.domain_name
-  tags = var.tags
+  tags        = var.tags
 }
 
 module "cdn" {
-  source = "./modules/cdn"
+  source      = "./modules/cdn"
   domain_name = var.domain_name
-  s3_origin = module.hosting_bucket.bucket_website_endpoint
+  s3_origin   = module.hosting_bucket.bucket_website_endpoint
+}
+
+module "dns" {
+  source             = "./modules/dns"
+  record_name        = var.domain_name
+  distribution       = module.cdn.endpoint
+  cloudfront_zone_id = module.cdn.zone_id
 }
 
 output "s3_endpoint" {
