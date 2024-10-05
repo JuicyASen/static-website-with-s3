@@ -21,19 +21,14 @@ variable "index_content" {
   default = <<EOT
   <!DOCTYPE html>
   <html>
-
   <head>
-    <title>YC JR Index</title>
+    <title>S3 Static Website</title>
   </head>
 
   <body>
-
-    <h1>Welcome to S3 static Website</h1>
-    <p>This is a html file reside in S3 bucket</p>
-
+    <h1>Welcome to my static Website</h1>
+    <p>This is a html file reside in S3 bucket, behind the Cloud Front CDN. The whole infrastructure is provisioned by Terraform.</p>
+    <p><a href="https://github.com/JuicyASen/static-website-with-s3">Checkout the source code</a> in my repository.</p>
   </body>
-  <footer>
-    This is footer
-  </footer>
   EOT
 }
