@@ -18,6 +18,10 @@ data "aws_acm_certificate" "custom_certificate_arn" {
   statuses = [ "ISSUED" ]
 }
 
+data "aws_cloudfront_cache_policy" "optimised" {
+  name = "Managed-CachingOptimized"
+}
+
 resource "random_id" "origin_id" {
   byte_length = 8
 }
@@ -58,12 +62,7 @@ resource "aws_cloudfront_distribution" "bucket_distro" {
     cached_methods = [ "GET", "HEAD" ]
     target_origin_id = random_id.origin_id.id
 
-    forwarded_values {
-      query_string = false
-      cookies {
-        forward = "none"
-      }
-    }
+    cache_policy_id = data.aws_cloudfront_cache_policy.optimised.id
   }
   
   enabled = true
