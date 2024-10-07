@@ -55,7 +55,7 @@ resource "aws_s3_object" "index_document" {
   bucket = aws_s3_bucket.bucket.bucket
   key = var.index_key
 
-  # Upload index.html to bucket and create a default one if file sourceis not specified
+  # Upload index.html to bucket or create a default one if file source is not specified
   source = var.index_source
   content = var.index_source == null ? var.index_content : null
   content_type = "text/html"
