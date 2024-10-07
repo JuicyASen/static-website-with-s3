@@ -26,6 +26,9 @@ terraform apply
 ## Future Improvement
 ### Further automation
 - The application of SSL certificate can also be automated
+- The application of terraform code can be automated and triggered using GitHub Action
+  - Use repo secret to store aws credentials and necessary parameters for terrafrom
+  - Maybe this goes too far for a demo...
 ### Security concern
 - The bucket access should be restricted.
 
