@@ -23,3 +23,13 @@ terraform plan
 # Apply the infra changes
 terraform apply
 ```
+## Future Improvement
+### Further automation
+- The application of SSL certificate can also be automated
+### Security concern
+- The bucket access should be restricted.
+
+### Terraform practice
+- It is not secure to store terraform backend locally, the state file should be locked in an encrypted bucket.
+  - Makes it more secure and less prone to be lost
+  - Makes it easier to maintain the infrastructure as a team
