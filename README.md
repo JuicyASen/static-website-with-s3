@@ -4,12 +4,13 @@ Infra Code for provisioning static web hosting with s3 bucket behind cdn(cloud f
 ![img](img/infra-dgm.drawio.png)
 
 ## Authentication
-Use environment variables
+Use environment variables to specify aws credential
 ```bash
 export AWS_ACCESS_KEY_ID="MYACCESSKEY"
 export AWS_SECRET_ACCESS_KEY="MYSECRET"
 export AWS_REGION="ap-southeast-2"
 ```
+> Note: if you have aws-cli installed in your envrionment, you don't need to export any credentails.
 ## Something not covered in Terraform
 You have to get the TLS/SSL certificate ready before applying this terraform code.
 > Notice: According to the convention of aws, your certified domain name should be the same as the name of your s3 bucket
